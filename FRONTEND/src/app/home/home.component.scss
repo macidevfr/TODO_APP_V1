@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  margin-top: 50px;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  :host ::ng-deep router-outlet + * {
+    position: absolute;
+    left: 350px;
+    padding-right: 40px;
+    width: calc(100% - 350px);
+  }
+}

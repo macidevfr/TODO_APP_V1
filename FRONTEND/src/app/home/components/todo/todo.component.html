@@ -1,0 +1,37 @@
+<span class="font-bold text-3xl text-gray-800 mb-12"
+  >Retrouvez toutes les Todos disponibles</span
+>
+
+<div class="justify-start grid grid-cols-3 w-5/6 gap-7">
+  <div
+    *ngFor="let todo of todosList"
+    class="h-80 flex justify-between flex-col bg-white rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-110 delay-0 shadow-md mr-8 mb-8 dark:bg-gray-800 dark:border-gray-700"
+  >
+    <div
+      class="h-2/5 bg-cover bg-center rounded-t"
+      [style.backgroundImage]="'url(' + todo.url_image + ')'"
+    ></div>
+
+    <div class="p-5 flex flex-grow justify-between flex-col">
+      <div class="flex-grow">
+        <span class="text-xl text-gray-800 h-20 font-bold">{{
+          todo.title | uppercase
+        }}</span>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-5">
+          {{ todo.description | titlecase }}
+        </p>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-xl text-gray-800 dark:text-white"
+          >{{ todo.points }} points</span
+        >
+        <button
+          (click)="doTodo(todo.id)"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Je le fais !
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
